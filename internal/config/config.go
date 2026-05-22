@@ -72,3 +72,4 @@ func (conf Config) SetUser(user string) error {
 	err = os.WriteFile(file, data, 0644)
 	return nil
 }
+

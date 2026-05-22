@@ -1,17 +1,24 @@
 package main
 
 import (
-	"github.com/Gosewinckel/Gator/internal/config"
 	"fmt"
+	"os"
 )
 
 func main() {
-	conf := config.Read()
-	err := conf.SetUser("lew")
+	s := initState()
+	commands := initCommands(&s)
+
+	args := os.Args
+	if len(args) < 2 {
+		fmt.Println("not enough arguments.")
+		os.Exit(1)
+	}
+	cmdArgs := args[1: len(args)]
+	command := command{Name: cmdArgs[0], Args: cmdArgs[1:len(cmdArgs)]}
+	err := commands.run(&s, command)
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
-	conf = config.Read()
-	fmt.Println(conf)
 }
