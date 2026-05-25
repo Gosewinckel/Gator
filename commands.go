@@ -2,9 +2,11 @@ package main
 
 import (
 	"github.com/Gosewinckel/Gator/internal/config"
+	"github.com/Gosewinckel/Gator/internal/database"
 )
 
 type state struct {
+	db *database.Queries
 	conf *config.Config
 }
 
@@ -31,6 +33,9 @@ func initCommands(s *state) commands {
 	
 	// register fuunctions
 	commands.register("login", handlerLogin)
+	commands.register("register", handlerRegister)
+	commands.register("reset", handlerReset)
+	commands.register("users", handlerUsers)
 	return commands
 }
 
