@@ -36,6 +36,7 @@ func initCommands(s *state) commands {
 	commands.register("register", handlerRegister)
 	commands.register("reset", handlerReset)
 	commands.register("users", handlerUsers)
+	commands.register("agg", handlerAggregator)
 	return commands
 }
 
