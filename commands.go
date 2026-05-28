@@ -39,6 +39,8 @@ func initCommands(s *state) commands {
 	commands.register("agg", handlerAggregator)
 	commands.register("addfeed", handlerFeed)
 	commands.register("feeds", handlerFeeds)
+	commands.register("follow", handlerFollow)
+	commands.register("following", handlerFollowing)
 	return commands
 }
 
