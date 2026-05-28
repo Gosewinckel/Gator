@@ -9,7 +9,7 @@ import (
 	"github.com/Gosewinckel/Gator/internal/database"
 )
 
-func handlerFeed(s *state, cmd command) error {
+func handlerFeed(s *state, cmd command, user database.User) error {
 	if len(cmd.Args) != 2 {
 		err := fmt.Errorf("Command must have 2 arguments")
 		return err

@@ -9,7 +9,7 @@ import (
 	"github.com/Gosewinckel/Gator/internal/database"
 )
 
-func handlerFollow(s *state, cmd command) error {
+func handlerFollow(s *state, cmd command, use database.User) error {
 	if len(cmd.Args) != 1 {
 		err := fmt.Errorf("wrong number of args for this command")
 		return err
